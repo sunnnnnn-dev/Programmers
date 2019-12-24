@@ -1,25 +1,9 @@
-def solution(n,arr1,arr2):
-    res = []
-    for a1,a2 in zip(arr1,arr2):
-        res_str = ''
-        for i in range(n-1,-1,-1):
-            str_1 = ''
-            str_2 = ''
-            
-            if 2**i <= a1:
-                str_1 = '#'
-                a1 -= 2**i
-            else:
-                str_1 = ' '
-            if 2**i <= a2:
-                str_2 = '#'
-                a2 -= 2**i
-            else:
-                str_2 = ' '
-                
-            if str_1 == ' ' and str_2 == ' ':
-                res_str += ' '
-            else:
-                res_str += '#'
-        res.append(res_str)
-    return res
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2):
+        a12 = str(bin(i|j)[2:])
+        a12=a12.rjust(n,'0')
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
