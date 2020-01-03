@@ -1,3 +1,8 @@
 def solution(arr):
-    res = [arr[0]] + [j for i,j in zip(arr,arr[1:]) if i!= j]
+    res = [arr[0]]
+    for i in arr[1:]:
+        if i != res[-1]:
+            res.append(i)
+        else:
+            pass
     return res
